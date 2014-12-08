@@ -28,9 +28,9 @@ function pkg_query() {
 
   rpm -qa | grep -qw $package
   if [[ "$?" -eq 0 ]]; then
-    echo "$package is installed"
+    echo "present"
   else
-    echo "$package is not installed"
+    echo "absent"
   fi
 }
 
@@ -48,7 +48,7 @@ function install_prereqs() {
 
   for package in "${package_list[@]}"; do
     local result=`pkg_query $package`
-    if [ $result == *is not installed* ]; then
+    if [ $result == *absent ]; then
       /usr/bin/sudo -E -p "Need to install necessary dependency ($package), password for sudo: "
       pkg_update
       pkg_install $package
