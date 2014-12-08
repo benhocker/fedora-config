@@ -89,7 +89,7 @@ function auto_update_repo() {
   fi
 
   is_clean
-  local current_branch=get_current_branch
+  local current_branch=`get_current_branch`
   on_master_branch $current_branch
   has_upstream_changes
   is_fast_forwardable
