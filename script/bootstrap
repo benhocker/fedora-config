@@ -1,0 +1,53 @@
+#!/bin/bash
+# Make sure all our local dependencies are available.
+
+which yum && { 
+  PKG_MANAGER='yum'
+  PKG_INSTALL="$PKG_MANAGER install -y"
+  PKG_QUERY="rpm -qa"
+  PKG_QUERY_INSTALLED="$PKG_QUERY | grep "
+  PKG_QUERY_VERIFY="wc -l"
+  PKG_UPDATE="$PKG_MANAGER update -y"
+  PKG_LIST="gcc git gnome-keyring libxml2 libxml2-devel libxslt libxslt-devel ruby ruby-devel rubygem-nokogiri"
+  # TODO: Find a better way to get nokogiri installed?
+  export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
+  return
+} || {
+  echo "Couldn't find yum"
+}
+
+PKGS=""
+for PKG in $PKG_LIST; do
+  PKGS+=$([[ "" == $($PKG_QUERY_INSTALLED $PKG | $PKG_QUERY_VERIFY) ]] && echo "$PKG " || echo "")
+done
+
+if [[ "$PKGS" != "" ]]; then
+  /usr/bin/sudo -E -p "Need to install absolutely necessary dependencies ($PKGS), password for sudo: " \
+  $PKG_UPDATE
+  $PKG_INSTALL $PKGS
+fi
+
+# FIX: only sudo if gem home isn't writable
+(/usr/bin/gem list -i bundler -v '~> 1.5.3' > /dev/null) || {
+  /usr/bin/sudo -E -p "Need to install Bundler for system ruby, password for sudo: " \
+  /usr/bin/gem install bundler -v '~> 1.5.3' --no-rdoc --no-ri
+}
+
+# We don't want old config hanging around.
+
+rm -rf .bundle/config
+rm -rf .librarian/puppet/config
+
+if [ -e /usr/bin/bundle ]; then
+  /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
+else
+  #TODO: make this more flexible. for now, if a user doesn't have bundle on either path then at least an error will be raised
+  /usr/local/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
+fi
+
+# Fix the binstubs to use system ruby
+if [ -e /usr/bin/sed ]; then
+  find bin -not -path 'bin/\.*' -type f -print0 | xargs -0 /usr/bin/sed -i 's|/usr/bin/env ruby|/usr/bin/ruby|g'
+else
+  find bin -not -path 'bin/\.*' -type f -print0 | xargs -0 -I % /bin/sed -i 's|/usr/bin/env ruby|/usr/bin/ruby|g' %
+fi

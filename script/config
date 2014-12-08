@@ -1,0 +1,107 @@
+#!/bin/bash
+
+readonly ORIG_DIR=`pwd`
+
+# Put us where we belong, in the root dir of the repo
+function go_to_repo_root () {
+  local DIR=`dirname $0`
+  cd ${DIR}/../
+  pwd
+}
+
+# Git functions
+function check_git() {
+  which git > /dev/null
+  return $?
+}
+
+function is_git_repo() {
+  local result=""
+  [ -d .git ] && result=true || result=false
+  return $result
+}
+
+function is_clean() {
+  local result=""
+  # Pending git commit?
+  if [ ! -z `git status --porcelain` ]; then
+    "Boxen has a dirty tree, won't auto-update!"
+    exit
+  fi
+}
+
+function get_current_branch() {
+  local current=`git symbolic-ref HEAD`
+  if [ -z $current ]; then
+    ref=`git log -1 --pretty=format:%h`
+    echo "Not currently on any branch (ref: #{ref}), won't auto-update!"
+    exit
+  fi
+  return $current
+}
+
+function on_master_branch() {
+  local current=$1
+  local master="refs/heads/master"
+
+  if [[ $current != $master ]]; then
+    echo "On a non-master branch '$current', won't auto-update!"
+    exit
+  fi
+}
+
+function has_upstream_changes() {
+  local upstream_changes=`git rev-list --count master..origin/master`
+
+}
+
+function is_fast_forwardable() {
+  local fast_forwardable=`git rev-list --count origin/master..master`
+
+}
+
+function auto_update_repo() {
+  if [[ check_git -eq 0 ]] && [[ is_git_repo == 'true' ]]; then
+    git fetch -q origin
+  fi
+
+  is_clean
+  local current_branch=get_current_branch
+  on_master_branch $current_branch
+  has_upstream_changes
+  is_fast_forwardable
+}
+
+function main() {
+  go_to_repo_root
+}
+
+main
+
+<<COMMENT
+    clean  = `git status --porcelain`.empty?
+    current_branch = `git symbolic-ref HEAD`.chomp
+    master = current_branch == "refs/heads/master"
+
+    upstream_changes = `git rev-list --count master..origin/master`.chomp != '0'
+    fast_forwardable = `git rev-list --count origin/master..master`.chomp == '0'
+
+    elsif !fast_forwardable
+      warn "Boxen's master branch is out of sync, won't auto-update!"
+    elsif !clean
+      warn "Boxen has a dirty tree, won't auto-update!"
+    elsif !upstream_changes
+      warn "Boxen is up-to-date."
+    end
+
+    if clean && master && fast_forwardable && upstream_changes
+      reset   = "(git reset --hard origin/master #{quietly})"
+      reclean = "(git clean -qdf)"
+
+      unless system "#{reset} && #{reclean}"
+        warn "Auto-update of Boxen FAILED, continuing."
+      end
+    end
+  end
+end
+COMMENT
