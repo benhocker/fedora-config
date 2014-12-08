@@ -42,10 +42,11 @@ function pkg_update() {
 }
 
 function install_prereqs() {
-  local package_list="gcc git gnome-keyring libxml2 libxml2-devel libxslt libxslt-devel ruby ruby-devel rubygem-nokogiri"
+  local package_list=(gcc git gnome-keyring libxml2 libxml2-devel libxslt libxslt-devel ruby ruby-devel)
 
-  for package in $package_list; do
-    if [ `pkg_query $package` == *is not installed* ]; then
+  for package in "${package_list[@]}"; do
+    echo $package
+    if [ `pkg_query $package` == "*is not installed*" ]; then
       /usr/bin/sudo -E -p "Need to install necessary dependency ($package), password for sudo: "
       pkg_update
       pkg_install $package
