@@ -25,7 +25,9 @@ function pkg_install() {
 
 function pkg_query() {
   local package=$1
-  if [[ `rpm -qa | grep ^$package | wc -l` -eq 1 ]]; then
+
+  rpm -qa | grep -qw $package
+  if [[ "$?" -eq 0 ]]; then
     echo "$package is installed"
   else
     echo "$package is not installed"
