@@ -38,7 +38,7 @@ function get_current_branch() {
     echo "Not currently on any branch (ref: #{ref}), won't auto-update!"
     exit
   fi
-  return $current
+  echo $current
 }
 
 function on_master_branch() {
