@@ -95,9 +95,14 @@ function auto_update_repo() {
   is_fast_forwardable
 }
 
+function run_bootstrap() {
+  ${ORIG_DIR}/bootstrap
+}
+
 function main() {
   go_to_repo_root
   auto_update_repo
+  run_bootstrap
 }
 
 main
