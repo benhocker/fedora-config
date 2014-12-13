@@ -9,7 +9,7 @@ gem "rake",                   "10.3.2"
 gem "rspec-puppet",           "1.0.1"
 gem "deep_merge",             "~> 1.0"
 
-group :development do
-  gem "net-ssh"
-  gem "rbvmomi"
-end
+#group :development do
+#  gem "net-ssh"
+#  gem "rbvmomi"
+#end
