@@ -1,5 +1,5 @@
 #!/bin/bash
-readonly ORIG_DIR=`pwd`
+readonly ORIG_DIR=`dirname $0`
 readonly QUIET="> /dev/null 2>&1"
 
 # Put us where we belong, in the root dir of the repo
