@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+  echo "Cloning vundle"
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
+fi
+
+echo "cd to ~/.vim/bundle/Vundle.vim"
+cd ~/.vim/bundle/vundle
+
+echo "Do PluginInstall"
+vim +PluginInstall +qall

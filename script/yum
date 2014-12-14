@@ -16,7 +16,7 @@ function check_yum() {
 
 function pkg_install() {
   local package=$1
-  yum install -y $package
+  sudo yum install -y $package
   if [ "$?" -ne 0 ]; then
     echo "yum failed to install $package"
     exit
@@ -36,7 +36,7 @@ function pkg_query() {
 
 function pkg_update() {
   local package=$1
-  yum update -y $package
+  sudo yum update -y $package
   if [ "$?" -ne 0 ]; then
     echo "yum failed to update $package"
     exit
@@ -44,15 +44,14 @@ function pkg_update() {
 }
 
 function install_prereqs() {
-  local package_list=(gcc git libxml2 libxml2-devel libxslt libxslt-devel ruby ruby-devel stow)
+  local package_list=`cat ./config/packages.txt`
 
+  pkg_update
   for package in "${package_list[@]}"; do
-    local result=`pkg_query $package`
-    if [ $result == *absent ]; then
-      /usr/bin/sudo -E -p "Need to install necessary dependency ($package), password for sudo: "
-      pkg_update
-      pkg_install $package
-    fi
+    #local result=`pkg_query $package`
+    #if [ $result == *absent ]; then
+      pkg_install $package_list
+    #fi
   done
 }
 

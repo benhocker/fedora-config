@@ -8,7 +8,7 @@
       "~/.bash_profile": "bash_profile"
       "~/.profile": "profile"
   #~/.vim: vim/
-  #~/.vimrc: vimrc
+      "~/.vimrc": "vimrc"
   #~/.zshrc:
   #  force: true
   #  path: zshrc

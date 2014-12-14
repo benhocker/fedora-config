@@ -2,3 +2,6 @@
 bin/
 .tmp/
 modules/
+.librarian/
+Gemfile.lock
+Puppetfile.lock

@@ -32,6 +32,7 @@ export LESS="-erX"
 export HISTCONTROL="erasedups"
 export BRANCH=`git branch 2>/dev/null|cut -f2 -d\* -s`
 export OS=`facter -p operatingsystem 2> /dev/null`
+export EDITOR='vim'
 
 # Common System Aliases
 alias grep="egrep -i"

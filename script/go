@@ -11,5 +11,6 @@ cd $script_dir
 ./yum
 ./ruby
 ./puppet
+./vundle
 
 cd $orig_dir
