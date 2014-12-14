@@ -3,19 +3,17 @@
     clean: ["~"]
   -
     link: 
+      "~/.dotfiles": ""
       "~/.bashrc": "bashrc"
-  -
-    shell:
-      -
-        - "git submodule update --init --recursive --remote"
-        - "Install/updating submodules"
-#  "~/.dotfiles": ""
-  #~/.bashrc: bashrc
-  #~/.bash_profile: bash_profile
-  #~/.profile: profile
+      "~/.bash_profile": "bash_profile"
+      "~/.profile": "profile"
   #~/.vim: vim/
   #~/.vimrc: vimrc
   #~/.zshrc:
   #  force: true
   #  path: zshrc
+  -
+    shell: [
+    #  ["git submodule update --init --recursive --remote", "Install/updating submodules"]
+    ]
 #

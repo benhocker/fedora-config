@@ -45,8 +45,8 @@ alias pl='puppet-lint *'
 alias cdu='du -ms * | sort -n'
 
 # Git aliases
-alias git='hub'
-eval "$(hub alias -s)"
+#alias git='hub'
+#eval "$(hub alias -s)"
 function dot {
   NEXT=$(pwd)
 	DATE=$(date)
