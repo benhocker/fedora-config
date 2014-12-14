@@ -1,0 +1,50 @@
+#!/bin/bash
+# Make sure all our local dependencies are available.
+readonly QUIET="> /dev/null 2>&1"
+
+# Ruby functions
+function install_bundler() {
+  # FIX: only sudo if gem home isn't writable
+  if [[ `/usr/bin/gem list -i bundler $QUIET` != 'true' ]]; then
+    /usr/bin/sudo -E -p "Need to install Bundler for system ruby, password for sudo: "
+    /usr/bin/gem install bundler --no-rdoc --no-ri
+  fi
+}
+
+function install_binstubs() {
+  if [ -e /usr/bin/bundle ]; then
+    /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
+  else
+    #TODO: make this more flexible. for now, if a user doesn't have bundle on either path then at least an error will be raised
+    /usr/local/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
+  fi
+  
+  # Fix the binstubs to use system ruby
+  if [ -e /usr/bin/sed ]; then
+    find bin -not -path 'bin/\.*' -type f -print0 | xargs -0 /usr/bin/sed -i 's|/usr/bin/env ruby|/usr/bin/ruby|g'
+  else
+    find bin -not -path 'bin/\.*' -type f -print0 | xargs -0 -I % /bin/sed -i 's|/usr/bin/env ruby|/usr/bin/ruby|g' %
+  fi
+}
+
+function bundle_install() {
+  cd `dirname $0`/..
+  echo "Running bundle install"
+  bundle install
+
+  echo "Running bundle update"
+  bundle update
+}
+
+function clean_old_configs() {
+  rm -rf .bundle/config
+}
+
+function main() {
+  install_bundler
+  install_binstubs
+  clean_old_configs
+  bundle_install
+}
+
+main

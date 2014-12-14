@@ -1,0 +1,30 @@
+#!/bin/bash
+# Make sure all our local dependencies are available.
+readonly QUIET="> /dev/null 2>&1"
+
+function librarian_puppet() {
+  cd `dirname $0`/..
+  echo "Running librarian-puppet install"
+  librarian-puppet install --clean --verbose #--no-use-v1-api # use the v3 API
+  echo "Running librarian-puppet update"
+  librarian-puppet update 
+}
+
+function run_puppet() {
+  echo "Running puppet"
+  cd `dirname $0`/..
+  puppet apply --verbose --debug --trace --modulepath modules manifests/site.pp
+}
+  
+function clean_old_configs() {
+  rm -rf .librarian/puppet/config
+  librarian-puppet clean
+}
+
+function main() {
+  clean_old_configs
+  librarian_puppet
+  run_puppet
+}
+
+main

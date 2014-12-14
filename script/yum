@@ -1,0 +1,63 @@
+#!/bin/bash
+# Make sure all our local dependencies are available.
+readonly QUIET="> /dev/null 2>&1"
+
+# Yum functions
+# Not sure if I'll need this yet
+#export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
+
+function check_yum() {
+  which yum > /dev/null
+  if [ "$?" -ne 0 ]; then
+    echo "Can't find yum"
+    exit
+  fi
+}
+
+function pkg_install() {
+  local package=$1
+  yum install -y $package
+  if [ "$?" -ne 0 ]; then
+    echo "yum failed to install $package"
+    exit
+  fi
+}
+
+function pkg_query() {
+  local package=$1
+
+  rpm -qa | grep -qw $package
+  if [[ "$?" -eq 0 ]]; then
+    echo "present"
+  else
+    echo "absent"
+  fi
+}
+
+function pkg_update() {
+  local package=$1
+  yum update -y $package
+  if [ "$?" -ne 0 ]; then
+    echo "yum failed to update $package"
+    exit
+  fi
+}
+
+function install_prereqs() {
+  local package_list=(gcc git libxml2 libxml2-devel libxslt libxslt-devel ruby ruby-devel stow)
+
+  for package in "${package_list[@]}"; do
+    local result=`pkg_query $package`
+    if [ $result == *absent ]; then
+      /usr/bin/sudo -E -p "Need to install necessary dependency ($package), password for sudo: "
+      pkg_update
+      pkg_install $package
+    fi
+  done
+}
+
+function main() {
+  install_prereqs
+}
+
+main

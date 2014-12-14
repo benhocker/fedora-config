@@ -1,0 +1,15 @@
+#!/bin/bash
+
+orig_dir=$(pwd)
+script_dir=${orig_dir}/script
+
+cd $orig_dir
+./install
+
+cd $script_dir
+./update
+./yum
+./ruby
+./puppet
+
+cd $orig_dir
