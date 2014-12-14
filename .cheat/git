@@ -1,0 +1,40 @@
+function dot {
+  NEXT=$(pwd)
+  DATE=$(date)
+  echo -e "\033[0;31mCommit to /home/ben/hockeba-dotfiles\e[0m"
+  cd /home/ben/hockeba-dotfiles
+  git add *
+  git commit -a -m "${DATE}"
+  git push
+  echo -e "\033[0;31mCommit to ~/projects/oneliners/\e[0m"
+  cd ~/projects/oneliners/
+  git add *
+  git commit -a -m "${DATE}"
+  git push
+  cd $NEXT
+}
+alias ga='git add --all'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gch='git checkout'
+alias gca='git commit -a'
+alias gcb='git checkout -b'
+alias gcl='git clone'
+alias gco='git commit'
+alias gct='git checkout -t origin/'
+alias gd='git diff'
+alias gdc='git diff --cached'
+function gdel() { git push origin :$1; git branch -d $1; }
+alias gfsck='git fsck'
+alias ggc='git gc'
+alias gl='git pull origin master'
+alias gm='git merge'
+alias gp='git push origin master'
+alias gprune='git remote update --prune'
+alias gpush="git push -u origin"
+alias gpull="git pull"
+alias gs='git status'
+alias gshow='git remote show origin'
+alias gsl='git stash list'
+alias gso='git remote show origin'
+alias gt='git tree'

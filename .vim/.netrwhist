@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/ben/src/r10k_devel/base/manifests/role'
+let g:netrw_dirhist_2='/home/ben/src/r10k_devel/hiera/hieradata/node'
+let g:netrw_dirhist_3='/home/ben/src/r10k_devel/base/manifests/profile'
+let g:netrw_dirhist_4='/home/ben/src/r10k_devel/base/manifests/role'
+let g:netrw_dirhist_5='/home/ben/src/puppet-modules/usb'
+let g:netrw_dirhist_6='/home/ben/src/puppet-modules/usb/manifests'
+let g:netrw_dirhist_7='/home/ben/src/r10k_devel/hiera/hieradata/modules'
