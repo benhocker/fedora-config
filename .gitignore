@@ -1,6 +1,6 @@
 .bundle
-bin/
 .tmp/
+bin/
 modules/
 .librarian/
 Gemfile.lock
