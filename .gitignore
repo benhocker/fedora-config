@@ -1,7 +1,7 @@
 .bundle
 .tmp/
-bin/
 modules/
 .librarian/
 Gemfile.lock
 Puppetfile.lock
+script/bin
