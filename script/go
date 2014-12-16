@@ -2,17 +2,22 @@
 
 orig_dir=$(pwd)
 script_dir=${orig_dir}/script
+debug=true
 
-cd $orig_dir
+if [ "$debug" == true ]; then
+	BASH='bash -x'
+else
+	BASH='bash'
+fi
 
 cd $script_dir
-./update
-./yum
-./ruby
-./dotbot
-./bashit
-./oh-my-zsh
-./puppet
-./vundle
+$BASH ./update
+$BASH ./yum
+$BASH ./dotbot
+$BASH ./ruby
+$BASH ./bashit
+$BASH ./oh-my-zsh
+$BASH ./puppet
+$BASH ./vundle
 
 cd $orig_dir

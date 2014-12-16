@@ -6,17 +6,20 @@ readonly QUIET="> /dev/null 2>&1"
 function install_bundler() {
   # FIX: only sudo if gem home isn't writable
   if [[ `/usr/bin/gem list -i bundler $QUIET` != 'true' ]]; then
-    /usr/bin/sudo -E -p "Need to install Bundler for system ruby, password for sudo: "
-    /usr/bin/gem install bundler --no-rdoc --no-ri
+		# -p "Need to install Bundler for system ruby, password for sudo: "
+    /usr/bin/sudo -E /usr/bin/gem install bundler --no-rdoc --no-ri
   fi
 }
 
 function install_binstubs() {
+  echo "proxy"
+	env | grep -i proxy
+
   if [ -e /usr/bin/bundle ]; then
-    bundle install --binstubs bin --path .bundle --quiet "$@"
+    bundle install --verbose --binstubs bin --path .bundle #--quiet "$@"
   else
     #TODO: make this more flexible. for now, if a user doesn't have bundle on either path then at least an error will be raised
-    bundle install --binstubs bin --path .bundle --quiet "$@"
+    bundle install --verbose --binstubs bin --path .bundle #--quiet "$@"
   fi
   
   # Fix the binstubs to use system ruby

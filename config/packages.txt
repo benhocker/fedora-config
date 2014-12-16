@@ -8,4 +8,5 @@ libxslt-devel
 keychain
 ruby 
 ruby-devel
+rubygem-bundler
 zsh

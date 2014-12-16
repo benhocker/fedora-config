@@ -105,7 +105,7 @@ function submodule_update() {
 
 function main() {
   go_to_repo_root
-	submodule_update
+#	submodule_update
   auto_update_repo
 }
 

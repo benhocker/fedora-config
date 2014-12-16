@@ -47,8 +47,10 @@ function install_prereqs() {
   local package_list=`cat ../config/packages.txt`
 
   pkg_update
-  for package in "${package_list[@]}"; do
-    pkg_install $package_list
+  for package in $package_list; do
+		if [ `pkg_query $package` == absent ]; then
+      pkg_install $package
+		fi
   done
 }
 

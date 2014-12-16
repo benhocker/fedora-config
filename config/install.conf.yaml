@@ -4,14 +4,16 @@
   -
     link: 
       "~/.dotfiles": ""
-      "~/.bashrc": "../homedir/bashrc"
+      "~/.bash_it": "../submodules/bash-it"
+      #"~/.bashrc": "../homedir/bashrc"
       "~/.bash_profile": "../homedir/bash_profile"
+      "~/bin": "../bin"
       "~/.profile": "../homedir/profile"
       "~/.vimrc": "../homedir/vimrc"
-      "~/bin": "../bin"
-      "~/.bashit": "../submodules/bash-it"
+      "~/.zshrc": "../homedir/zshrc"
   -
     shell: [
       ["git submodule update --init --recursive --remote", "Install/updating submodules"]
+      ["~/.bash_it/install.sh", "Install/updating submodules"]
     ]
 #
