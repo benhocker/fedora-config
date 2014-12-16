@@ -1,3 +1,4 @@
+bash
 gcc
 git
 libxml2
@@ -7,3 +8,4 @@ libxslt-devel
 keychain
 ruby 
 ruby-devel
+zsh
