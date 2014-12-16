@@ -5,7 +5,9 @@ readonly QUIET="> /dev/null 2>&1"
 # Put us where we belong, in the root dir of the repo
 function go_to_repo_root () {
   local DIR=`dirname $0`
-  cd ${DIR}/../
+	if [[ `pwd | awk -F/ '{print $NF}'` == 'script' ]]; then
+    cd ${DIR}/../
+	fi
   pwd
 }
 
@@ -95,8 +97,15 @@ function auto_update_repo() {
   is_fast_forwardable
 }
 
+function submodule_update() {
+  cd submodules
+	git submodule update --init --recursive --remote
+	go_to_repo_root
+}
+
 function main() {
   go_to_repo_root
+	submodule_update
   auto_update_repo
 }
 

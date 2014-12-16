@@ -12,5 +12,7 @@ cd $script_dir
 ./ruby
 ./puppet
 ./vundle
+./dotbot
+./bashit
 
 cd $orig_dir
