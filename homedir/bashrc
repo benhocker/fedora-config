@@ -27,6 +27,29 @@ function nato() {
 	done
 }
 
+function proxyon() {
+    url=$1
+    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+    export NO_PROXY="localhost,127.0.0.1,localaddress,.localdomain.com"
+    export http_proxy=$url
+    export HTTP_PROXY=$url
+    export https_proxy=$url
+    export HTTPS_PROXY=$url
+    export ftp_proxy=$url
+    export FTP_PROXY=$url
+    export rsync_proxy=$url
+    export RSYNC_PROXY=$url
+    echo -e "Proxy environment variable set."
+}
+
+function proxyoff() {
+  unset HTTP_PROXY
+  unset HTTPS_PROXY
+  unset http_proxy
+  unset https_proxy
+  echo -e "Proxy environment variable removed."
+}
+
 # Environment vars
 export LESS="-erX" 
 export HISTCONTROL="erasedups"
