@@ -44,14 +44,11 @@ function pkg_update() {
 }
 
 function install_prereqs() {
-  local package_list=`cat ./config/packages.txt`
+  local package_list=`cat ../config/packages.txt`
 
   pkg_update
   for package in "${package_list[@]}"; do
-    #local result=`pkg_query $package`
-    #if [ $result == *absent ]; then
-      pkg_install $package_list
-    #fi
+    pkg_install $package_list
   done
 }
 
