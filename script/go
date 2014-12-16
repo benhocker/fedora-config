@@ -11,6 +11,7 @@ cd $script_dir
 ./ruby
 ./dotbot
 ./bashit
+./oh-my-zsh
 ./puppet
 ./vundle
 
