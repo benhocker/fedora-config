@@ -13,10 +13,10 @@ function install_bundler() {
 
 function install_binstubs() {
   if [ -e /usr/bin/bundle ]; then
-    /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
+    bundle install --binstubs bin --path .bundle --quiet "$@"
   else
     #TODO: make this more flexible. for now, if a user doesn't have bundle on either path then at least an error will be raised
-    /usr/local/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
+    bundle install --binstubs bin --path .bundle --quiet "$@"
   fi
   
   # Fix the binstubs to use system ruby

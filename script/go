@@ -8,10 +8,10 @@ cd $orig_dir
 cd $script_dir
 ./update
 ./yum
+./dotbot
+./bashit
 ./ruby
 ./puppet
 ./vundle
-./dotbot
-./bashit
 
 cd $orig_dir
