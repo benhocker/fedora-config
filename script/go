@@ -8,9 +8,9 @@ cd $orig_dir
 cd $script_dir
 ./update
 ./yum
+./ruby
 ./dotbot
 ./bashit
-./ruby
 ./puppet
 ./vundle
 
