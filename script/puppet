@@ -13,7 +13,7 @@ function librarian_puppet() {
 function run_puppet() {
   echo "Running puppet"
   cd `dirname $0`/..
-  puppet apply --verbose --debug --trace --modulepath modules ../manifests/site.pp
+  puppet apply --verbose --debug --trace --modulepath modules ~/.dotfiles/manifests/site.pp
 }
   
 function clean_old_configs() {

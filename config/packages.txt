@@ -6,6 +6,7 @@ libxml2-devel
 libxslt
 libxslt-devel
 keychain
+python-argcomplete
 ruby 
 ruby-devel
 rubygem-bundler

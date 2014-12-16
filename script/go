@@ -2,7 +2,7 @@
 
 orig_dir=$(pwd)
 script_dir=${orig_dir}/script
-debug=true
+debug=false
 
 if [ "$debug" == true ]; then
 	BASH='bash -x'
@@ -14,10 +14,10 @@ cd $script_dir
 $BASH ./update
 $BASH ./yum
 $BASH ./dotbot
-$BASH ./ruby
-$BASH ./bashit
-$BASH ./oh-my-zsh
-$BASH ./puppet
-$BASH ./vundle
+#$BASH ./ruby
+#$BASH ./bashit
+#$BASH ./oh-my-zsh
+#$BASH ./puppet
+#$BASH ./vundle
 
 cd $orig_dir

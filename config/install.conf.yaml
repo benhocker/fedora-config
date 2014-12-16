@@ -3,18 +3,21 @@
     clean: ["~"]
   -
     link: 
-      "~/.dotfiles": ""
+      "~/.dotfiles": ".."
       "~/.bash_it": "../submodules/bash-it"
       #"~/.bashrc": "../homedir/bashrc"
       "~/.bash_profile": "../homedir/bash_profile"
       "~/bin": "../bin"
-      "~/.bundle": "../.bundle"
+      "~/.jekyllconfig": "../homedir/jekyllconfig"
       "~/.profile": "../homedir/profile"
       "~/.vimrc": "../homedir/vimrc"
       "~/.zshrc": "../homedir/zshrc"
   -
     shell: [
-      ["git submodule update --init --recursive --remote", "Install/updating submodules"]
-      ["~/.bash_it/install.sh", "Install/updating submodules"]
+      ["git submodule update --init --recursive --remote", "Install/updating submodules"],
+      ["../script/ruby", "Install/Configure Ruby"],
+      ["../script/bashit", "Install/Configure Bash It"],
+      ["../script/oh-my-zsh", "Install/Configure Oh-My-ZSH"],
+      ["../script/vundle", "Install/Configure Vundle"],
+      ["../script/puppet", "Install/Configure Puppet"],
     ]
-#

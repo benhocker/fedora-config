@@ -2,10 +2,11 @@
 
 set -e
 
-DOTBOT_BIN="bin/dotbot"
+CONFIG="../config/install.conf.yaml"
 DOTBOT_DIR="../submodules/dotbot"
+
+DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG="$BASEDIR/../config/install.conf.yaml"
 
 cd "${BASEDIR}"
 git submodule update --init --recursive "${DOTBOT_DIR}"
