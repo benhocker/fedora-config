@@ -8,6 +8,7 @@
       #"~/.bashrc": "../homedir/bashrc"
       "~/.bash_profile": "../homedir/bash_profile"
       "~/bin": "../bin"
+      "~/.bundle": "../.bundle"
       "~/.profile": "../homedir/profile"
       "~/.vimrc": "../homedir/vimrc"
       "~/.zshrc": "../homedir/zshrc"
