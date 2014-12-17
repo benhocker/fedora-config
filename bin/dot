@@ -1,0 +1,12 @@
+#!/bin/bash
+
+NEXT=$(pwd)
+DATE=$(date)
+
+echo -e "\033[0;31mCommit to .dotfiles\e[0m"
+cd ~/.dotfiles
+git add *
+git commit -a -m "${DATE}"
+git push
+
+cd $NEXT

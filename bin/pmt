@@ -1,0 +1,7 @@
+#!/bin/bash
+
+module=$1
+full_name="phathocker-$module"
+echo "puppet module generate $full_name"
+puppet module generate $full_name
+mv $full_name $module

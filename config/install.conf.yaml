@@ -9,6 +9,12 @@
       "~/.bash_it":
         path: "../submodules/bash_it"
         force: true
+      "~/.bash_it/themes/phathocker":
+        path: "../themes/phathocker"
+        force: true
+      "~/.bash_it/aliases/custom.aliases.bash":
+        path: "../homedir/aliases"
+        force: true
       "~/.bash_profile":
         path: "../homedir/bash_profile"
         force: true
@@ -17,9 +23,6 @@
         force: true
       "~/.jekyllconfig":
         path: "../homedir/jekyllconfig"
-        force: true
-      "~/.bash_it/themes/phathocker":
-        path: "../themes/phathocker"
         force: true
       "~/.vimrc":
         path: "../homedir/vimrc"

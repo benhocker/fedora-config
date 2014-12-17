@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Grep
+export GREP_COLOR='1;31'
+export CLICOLOR=1
+alias grep='egrep -i --color=always'
+
+# Git
+alias gct='git checkout -t origin/'
+alias gdc='git diff --cached'
+alias gfsck='git fsck'
+alias ggc='git gc'
+alias gpush="git push -u origin"
+alias gpull="git pull"
+alias gshow='git remote show origin'
+alias gsl='git stash list'
+alias gt='git tree'
+alias gu='git up'
+
+# Bash
+alias sb="reload"
+alias b="vim ~/.dotfiles/homedir/aliases"
+alias bp="vim ~/.bash_profile"
+alias v="vim ~/.vimrc"
+
+# SSH
+SSH_ARGS="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ConnectTimeout=1 -o ConnectionAttempts=1"
+alias sshpass="/usr/bin/ssh -l root -X ${SSH_ARGS} -o PubkeyAuthentication=no"
+alias ssh="/usr/bin/ssh -l root -X ${SSH_ARGS}"
+alias scp="/usr/bin/scp ${SSH_ARGS}"
+
+# Auto-sudo
+alias ps="sudo ps"
+alias yum="sudo yum"
+alias tail="sudo tail"
+alias netstat="sudo netstat -pantu"
+
+# Misc
+alias ll="ls -lha"
+alias cdu='du -ms * | sort -n'
+alias pl='puppet-lint *'
