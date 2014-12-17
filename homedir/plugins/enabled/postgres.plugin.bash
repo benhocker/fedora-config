@@ -1,1 +1,0 @@
-../available/postgres.plugin.bash
