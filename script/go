@@ -15,9 +15,9 @@ $BASH ./update
 $BASH ./yum
 $BASH ./dotbot
 #$BASH ./ruby
-#$BASH ./bashit
-#$BASH ./oh-my-zsh
-#$BASH ./puppet
+$BASH ./bashit
+$BASH ./oh-my-zsh
 $BASH ./vundle
+#$BASH ./puppet
 
 cd $orig_dir
