@@ -1,0 +1,13 @@
+#!/bin/bash
+
+unset no_proxy
+unset NO_PROXY
+unset HTTP_PROXY
+unset HTTPS_PROXY
+unset http_proxy
+unset https_proxy
+unset ftp_proxy
+unset FTP_PROXY
+unset rsync_proxy
+unset RSYNC_PROXY
+echo -e "Proxy environment variable removed."

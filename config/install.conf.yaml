@@ -9,6 +9,12 @@
       "~/.bash_it":
         path: "../submodules/bash_it"
         force: true
+      "~/.bash_it/aliases/enabled":
+        path: "~/.bash_it/aliases"
+      "~/.bash_it/completion/enabled":
+        path: "~/.bash_it/completion"
+      "~/.bash_it/plugins/enabled":
+        path: "~/.bash_it/plugins"
       "~/.bash_profile":
         path: "../homedir/bash_profile"
         force: true
@@ -24,7 +30,6 @@
       "~/.vim":
         create: true
         force: true
-        path: "~/.vim"
       "~/.vimrc":
         path: "../homedir/vimrc"
         force: true

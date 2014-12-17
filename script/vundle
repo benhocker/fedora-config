@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ ! -d ~/.vim ]; then
+	echo "Creating ~/.vim"
+	mkdir -p ~/.vim
+fi
+
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
   echo "Cloning vundle"
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
