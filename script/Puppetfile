@@ -18,12 +18,6 @@ mod "phathocker-profiles",
   :git => "git://github.com/phathocker/puppet-profiles.git",
   :ref =>"v0.1.0"
 
-# use dependencies defined in metadata.json
-#metadata
-
-# use dependencies defined in Modulefile
-# modulefile
-
 # A module from the Puppet Forge
 # mod 'puppetlabs-stdlib'
 
