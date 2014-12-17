@@ -3,6 +3,10 @@
 url="https://github.com/revans/bash-it.git"
 path="../submodules/bash_it"
 
+#function echo() {
+#  echo # $@ >> /tmp/bash-it.install #| tee >> /tmp/bash-it.install 
+#}
+
 if [ ! -d ../submodules/bash_it ]; then
 	echo "Adding submodule at $url to $path"
   git submodule add $url $path
@@ -13,3 +17,29 @@ cd ../submodules
 
 echo "bash-it: submodule update --recursive"
 git submodule update --recursive
+
+source ~/.bash_it/bash_it.sh
+
+# alias
+alias_list="bundler general rails vagrant vim"
+#heroku laravel maven
+for alias in $alias_list; do
+	echo "Enable bash-it alias $alias"
+	bash-it enable alias $alias >> /tmp/bash-it.install
+done
+
+# completion
+completion_list="bash-it defaults gem gh git git_flow_avh git_flow rake ssh vagrant virtualbox"
+#capistrano grunt gulp maven packer
+for completion in $completion_list; do
+	echo "Enable bash-it completion $completion"
+	bash-it enable alias $completion >> /tmp/bash-it.install
+done
+
+# plugin
+plugin_list="browser dirs extract gh git history jekyll latex ruby rvm ssh vagrant"
+#docker gif java javascript node nvm postgres
+for plugin in $plugin_list; do
+	echo "Enable bash-it plugin $plugin"
+	bash-it enable plugin $plugin >> /tmp/bash-it.install
+done
