@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source ../private/aliases
+if [ -f ../private/aliases ]; then
+  source ../private/aliases
+fi
 
 # Grep
 export GREP_COLOR='1;31'
