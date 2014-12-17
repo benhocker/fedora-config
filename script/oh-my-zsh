@@ -1,8 +1,15 @@
 #!/bin/bash
 
+url="git://github.com/robbyrussell/oh-my-zsh.git"
+path="../submodules/oh-my-zsh"
+
 if [ ! -d ../submodules/oh-my-zsh ]; then
-  git submodule add git://github.com/robbyrussell/oh-my-zsh.git ../submodules/oh-my-zsh
+	echo "Adding submodule at $url to $path"
+  git submodule add $url $path
 fi
 
-cd ../submodulest submodule update
+echo "cd to ../submodules"
+cd ../submodules
+
+echo "zsh: Running submodule update --recursive"
 git submodule update --recursive

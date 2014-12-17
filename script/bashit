@@ -1,8 +1,15 @@
 #!/bin/bash
 
+url="https://github.com/revans/bash-it.git"
+path="../submodules/bash_it"
+
 if [ ! -d ../submodules/bash_it ]; then
-  git submodule add https://github.com/revans/bash-it.git ../submodules/bash_it
+	echo "Adding submodule at $url to $path"
+  git submodule add $url $path
 fi
 
+echo "cd to ../submodules"
 cd ../submodules
+
+echo "bash-it: submodule update --recursive"
 git submodule update --recursive
