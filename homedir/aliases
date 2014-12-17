@@ -1,7 +1,9 @@
 #!/bin/bash
 
-if [ -f ../private/aliases ]; then
-  source ../private/aliases
+pwd
+
+if [ -f private/aliases ]; then
+  source private/aliases
 fi
 
 # Grep
