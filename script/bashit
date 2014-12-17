@@ -15,7 +15,7 @@ fi
 echo "cd to ../submodules"
 cd ../submodules
 
-echo "bash-it: submodule update --recursive"
+echo "bash-it: Running submodule update --recursive"
 git submodule update --recursive
 
 source ~/.bash_it/bash_it.sh

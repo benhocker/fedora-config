@@ -4,20 +4,26 @@ orig_dir=$(pwd)
 script_dir=${orig_dir}/script
 debug=false
 
+# Debug bash
 if [ "$debug" == true ]; then
 	BASH='bash -x'
 else
 	BASH='bash'
 fi
 
+# Main
 cd $script_dir
 $BASH ./update
 $BASH ./yum
 $BASH ./dotbot
-#$BASH ./ruby
 $BASH ./bashit
 $BASH ./oh-my-zsh
 $BASH ./vundle
 #$BASH ./puppet
 
+if [ -x ${orig_dir}/private/setup.sh ]; then
+	${orig_dir}/private/setup.sh
+fi
+
+# Return to whence you came
 cd $orig_dir

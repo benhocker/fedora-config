@@ -27,6 +27,9 @@
       "~/.vimrc":
         path: "../homedir/vimrc"
         force: true
+      "~/.oh-my-zsh":
+        path: "../submodules/oh-my-zsh"
+        force: true
       "~/.zshrc":
         path: "../homedir/zshrc"
         force: true
