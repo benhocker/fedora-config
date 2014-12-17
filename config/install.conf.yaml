@@ -7,7 +7,7 @@
         path: ".."
         force: true
       "~/.bash_it":
-        path: "../submodules/bash-it"
+        path: "../submodules/bash_it"
         force: true
       #"~/.bashrc": "../homedir/bashrc"
       "~/.bash_profile":
@@ -22,7 +22,7 @@
       "~/.vimrc":
         path: "../homedir/vimrc"
         force: true
-      "~/.zshrc": "../homedir/zshrc"
+      "~/.zshrc":
         path: "../homedir/zshrc"
         force: true
   -
@@ -32,5 +32,5 @@
       ["../script/bashit >> /tmp/bashit.install", "Install/Configure Bash It"],
       ["../script/oh-my-zsh >> /tmp/oh-my-zsh.install", "Install/Configure Oh-My-ZSH"],
       ["../script/vundle >> /tmp/vundle.install", "Install/Configure Vundle"],
-      ["../script/puppet >> /tmp/puppet.install", "Install/Configure Puppet"],
+      ["../script/puppet >> /tmp/puppet.install", "Install/Configure Puppet"]
     ]
