@@ -22,6 +22,7 @@ $BASH ./vundle
 #$BASH ./puppet
 
 if [ -x ${orig_dir}/private/setup.sh ]; then
+	echo "Running ${orig_dir}/private/setup.sh"
 	${orig_dir}/private/setup.sh
 fi
 
