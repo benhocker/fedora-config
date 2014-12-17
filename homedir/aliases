@@ -6,12 +6,31 @@ if [ -f private/aliases ]; then
   source private/aliases
 fi
 
+# Auto-sudo
+alias ps="sudo ps"
+alias yum="sudo yum"
+alias tail="sudo tail"
+alias netstat="sudo netstat -pantu"
+
+# Bash
+alias sb="reload"
+alias b="vim ~/.dotfiles/homedir/aliases"
+alias bp="vim ~/.bash_profile"
+alias v="vim ~/.vimrc"
+
+# Bash-it
+alias bha='bash-it help aliases'
+alias bhc='bash-it help completions'
+alias bhp='bash-it help plugins'
+
 # Grep
 export GREP_COLOR='1;31'
 export CLICOLOR=1
 alias grep='egrep -i --color=always'
 
 # Git
+alias ga='git add --all'
+alias gcb='git checkout -b'
 alias gct='git checkout -t origin/'
 alias gdc='git diff --cached'
 alias gfsck='git fsck'
@@ -23,11 +42,8 @@ alias gsl='git stash list'
 alias gt='git tree'
 alias gu='git up'
 
-# Bash
-alias sb="reload"
-alias b="vim ~/.dotfiles/homedir/aliases"
-alias bp="vim ~/.bash_profile"
-alias v="vim ~/.vimrc"
+# Locations
+alias dot='cd ~/.dotfiles/'
 
 # SSH
 SSH_ARGS="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ConnectTimeout=1 -o ConnectionAttempts=1"
@@ -35,13 +51,7 @@ alias sshpass="/usr/bin/ssh -l root -X ${SSH_ARGS} -o PubkeyAuthentication=no"
 alias ssh="/usr/bin/ssh -l root -X ${SSH_ARGS}"
 alias scp="/usr/bin/scp ${SSH_ARGS}"
 
-# Auto-sudo
-alias ps="sudo ps"
-alias yum="sudo yum"
-alias tail="sudo tail"
-alias netstat="sudo netstat -pantu"
-
 # Misc
-alias ll="ls -lha"
+alias llh="ls -lha"
 alias cdu='du -ms * | sort -n'
 alias pl='puppet-lint *'
