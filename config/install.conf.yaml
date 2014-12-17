@@ -21,9 +21,6 @@
       "~/.bash_it/themes/phathocker":
         path: "../themes/phathocker"
         force: true
-      "~/.vim":
-        create: true
-        force: true
       "~/.vimrc":
         path: "../homedir/vimrc"
         force: true
