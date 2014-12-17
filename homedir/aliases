@@ -1,7 +1,5 @@
 #!/bin/bash
 
-pwd
-
 if [ -f private/aliases ]; then
   source private/aliases
 fi
