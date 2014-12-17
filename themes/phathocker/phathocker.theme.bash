@@ -14,7 +14,7 @@ VIRTUALENV_THEME_PROMPT_PREFIX='|'
 VIRTUALENV_THEME_PROMPT_SUFFIX='|'
 
 function prompt_command() {
-	PS1="${blue}\w\n${green}\u@\h ${purple}$(scm_char)${yellow}$(scm_prompt_info) ${red}→ "
+	PS1="${blue}\w\n${green}\u@\h ${purple}$(scm_char)${orange}$(scm_prompt_info) ${white}→ "
 }
 
 PROMPT_COMMAND=prompt_command;

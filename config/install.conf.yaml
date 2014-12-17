@@ -19,6 +19,12 @@
       "~/.jekyllconfig":
         path: "../homedir/jekyllconfig"
         force: true
+      "~/.bash_it/themes/phathocker":
+        path: "../themes/phathocker"
+        force: true
+      "~/.vim":
+        create: true
+        path: "~/.vim"
       "~/.vimrc":
         path: "../homedir/vimrc"
         force: true
