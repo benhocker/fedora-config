@@ -3,21 +3,34 @@
     clean: ["~"]
   -
     link: 
-      "~/.dotfiles": ".."
-      "~/.bash_it": "../submodules/bash-it"
+      "~/.dotfiles":
+        path: ".."
+        force: true
+      "~/.bash_it":
+        path: "../submodules/bash-it"
+        force: true
       #"~/.bashrc": "../homedir/bashrc"
-      "~/.bash_profile": "../homedir/bash_profile"
-      "~/bin": "../bin"
-      "~/.jekyllconfig": "../homedir/jekyllconfig"
-      "~/.profile": "../homedir/profile"
-      "~/.vimrc": "../homedir/vimrc"
+      "~/.bash_profile":
+        path: "../homedir/bash_profile"
+        force: true
+      "~/bin":
+        path: "../bin"
+        force: true
+      "~/.jekyllconfig":
+        path: "../homedir/jekyllconfig"
+        force: true
+      "~/.vimrc":
+        path: "../homedir/vimrc"
+        force: true
       "~/.zshrc": "../homedir/zshrc"
+        path: "../homedir/zshrc"
+        force: true
   -
     shell: [
       ["git submodule update --init --recursive --remote", "Install/updating submodules"],
-      ["../script/ruby", "Install/Configure Ruby"],
-      ["../script/bashit", "Install/Configure Bash It"],
-      ["../script/oh-my-zsh", "Install/Configure Oh-My-ZSH"],
-      ["../script/vundle", "Install/Configure Vundle"],
-      ["../script/puppet", "Install/Configure Puppet"],
+      ["../script/ruby >> /tmp/ruby.install", "Install/Configure Ruby"],
+      ["../script/bashit >> /tmp/bashit.install", "Install/Configure Bash It"],
+      ["../script/oh-my-zsh >> /tmp/oh-my-zsh.install", "Install/Configure Oh-My-ZSH"],
+      ["../script/vundle >> /tmp/vundle.install", "Install/Configure Vundle"],
+      ["../script/puppet >> /tmp/puppet.install", "Install/Configure Puppet"],
     ]
