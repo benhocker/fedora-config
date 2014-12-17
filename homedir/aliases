@@ -1,7 +1,9 @@
 #!/bin/bash
 
-if [ -f private/aliases ]; then
-  source private/aliases
+echo "Loading homedir/aliases"
+
+if [ -f ~/.dotfiles/private/aliases ]; then
+  source ~/.dotfiles/private/aliases
 fi
 
 # Auto-sudo
