@@ -1,5 +1,8 @@
 #!/bin/bash
 
 if [ ! -d ../submodules/bash_it ]; then
-  git clone https://github.com/revans/bash-it.git ../submodules/bash_it
+  git submodule add https://github.com/revans/bash-it.git ../submodules/bash_it
 fi
+
+cd ../submodules
+git submodule update --recursive

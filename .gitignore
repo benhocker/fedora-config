@@ -5,3 +5,4 @@ modules/
 Gemfile.lock
 Puppetfile.lock
 script/bin
+submodules/*

@@ -27,10 +27,10 @@
         force: true
   -
     shell: [
-      ["git submodule update --init --recursive --remote", "Install/updating submodules"],
-      ["../script/ruby >> /tmp/ruby.install", "Install/Configure Ruby"],
       ["../script/bashit >> /tmp/bashit.install", "Install/Configure Bash It"],
       ["../script/oh-my-zsh >> /tmp/oh-my-zsh.install", "Install/Configure Oh-My-ZSH"],
+      ["git submodule update --init --recursive --remote", "Install/updating submodules"],
       ["../script/vundle >> /tmp/vundle.install", "Install/Configure Vundle"],
+      ["../script/ruby >> /tmp/ruby.install", "Install/Configure Ruby"],
       ["../script/puppet >> /tmp/puppet.install", "Install/Configure Puppet"]
     ]

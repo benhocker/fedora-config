@@ -1,5 +1,8 @@
 #!/bin/bash
 
 if [ ! -d ../submodules/oh-my-zsh ]; then
-  git clone git://github.com/robbyrussell/oh-my-zsh.git ../submodules/oh-my-zsh
+  git submodule add git://github.com/robbyrussell/oh-my-zsh.git ../submodules/oh-my-zsh
 fi
+
+cd ../submodulest submodule update
+git submodule update --recursive
