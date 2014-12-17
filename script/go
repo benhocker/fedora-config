@@ -18,6 +18,6 @@ $BASH ./dotbot
 #$BASH ./bashit
 #$BASH ./oh-my-zsh
 #$BASH ./puppet
-#$BASH ./vundle
+$BASH ./vundle
 
 cd $orig_dir
