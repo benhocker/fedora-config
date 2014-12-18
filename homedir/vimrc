@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
+Plugin 'dahu/VimLint'
 Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular'
 Plugin 'SirVer/ultisnips'
@@ -49,10 +50,32 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-filetype plugin indent on
+"Defaults
+set smarttab
+set tabstop=2                    " set the default tabstops
+set shiftwidth=2                 " set the default autoindent
+set softtabstop=2
+set expandtab
+set hidden
+
+set autoindent
+set shiftround                   " Round indents to a multiple of 'shiftwidth'
+set complete-=i                  " Don't scan includes, since it can be very slow.
+set backspace=indent,eol,start   " Set for maximum backspace smartness
+
+set nowrap                       " Soft (without changing text) wrapping.
+set linebreak                    " Only wrap on characters in `breakat`
+if has('multi_byte')
+  let &showbreak = '↳ '
+else
+  let &showbreak = '> '
+endif
+
+if has('syntax')
+  syntax enable
+endif
 
 "solarized
-syntax enable
 let g:solarized_termtrans = 1 
 if has('gui_running')
   set background=light
@@ -60,6 +83,8 @@ else
   set background=dark
 endif
 colorscheme solarized
+
+"autocmd
 autocmd FileType pp setlocal shiftwidth=2 tabstop=2
 autocmd FileType rb setlocal shiftwidth=2 tabstop=2
 autocmd FileType erb setlocal shiftwidth=2 tabstop=2
