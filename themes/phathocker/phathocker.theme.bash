@@ -21,21 +21,7 @@ function prompt_command() {
   scm="$(scm_prompt_info)"
   end="${white}→${reset_color} "
 
-  PS1="\n${time} ${cwd} ${battery}\n${reset_color}[${user}@${host}${reset_color}]${ruby}${scm}${end}"
+  PS1="\n${time} ${cwd} ${battery}\n${reset_color}[${user}@${host}${reset_color}]${ruby}${scm}\n${end}"
 }
+
 PROMPT_COMMAND=prompt_command;
-
-function prompt() {
-    local return_status=""
-    local ruby="${red}$(ruby_version_prompt)${reset_color}"
-    local user_host="${green}\h${reset_color}"
-    local current_path="\w"
-    local n_commands="\!"
-    local git_branch="$(git_short_sha)$(scm_prompt_info)"
-    local prompt_symbol='λ'
-    local open='('
-    local close=')'
-    local prompt_char=' \$ '
-
-    PS1="\n${n_commands} ${user_host} ${prompt_symbol} ${ruby} ${open}${current_path}${git_branch}${close}${return_status}\n${prompt_char}"
-}
