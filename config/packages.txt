@@ -7,6 +7,7 @@ libxslt
 libxslt-devel
 keychain
 python-argcomplete
+python-devel
 ruby 
 ruby-devel
 rubygem-bundler
