@@ -26,7 +26,7 @@ alias bhp='bash-it help plugins'
 # Grep
 export GREP_COLOR='1;31'
 export CLICOLOR=1
-alias grep='egrep -i --color=always'
+alias grep='egrep -i'
 
 # Git
 alias ga='git add --all'
