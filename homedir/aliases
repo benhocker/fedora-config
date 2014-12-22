@@ -29,6 +29,7 @@ export CLICOLOR=1
 alias grep='egrep -i'
 
 # Git
+eval "$(hub alias -s)"
 alias ga='git add --all'
 alias gcb='git checkout -b'
 alias gct='git checkout -t origin/'
