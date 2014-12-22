@@ -8,7 +8,8 @@ libxslt-devel
 keychain
 python-argcomplete
 python-devel
-ruby 
+ruby
 ruby-devel
 rubygem-bundler
+wget
 zsh
