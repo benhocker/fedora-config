@@ -2,6 +2,7 @@
 
 url=$1
 extra_domains=$2
+print=$3
 stock_domains="localhost,127.0.0.1,localaddress,.localdomain.com"
 
 if [ ! -z $extra_domains ]; then
@@ -23,3 +24,19 @@ export FTP_PROXY=$url
 export rsync_proxy=$url
 export RSYNC_PROXY=$url
 echo -e "Proxy environment variable set."
+
+if [ ! -z $print ]; then
+  echo "
+  export no_proxy=$domains
+  export NO_PROXY=$domains
+  export http_proxy=$url
+  export HTTP_PROXY=$url
+  export https_proxy=$url
+  export HTTPS_PROXY=$url
+  export ftp_proxy=$url
+  export FTP_PROXY=$url
+  export rsync_proxy=$url
+  export RSYNC_PROXY=$url
+  "
+  env | grep -i proxy
+fi
