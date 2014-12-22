@@ -772,12 +772,12 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
 " In many terminal emulators the mouse works just fine, thus enable it.
-if v:version >= 702 && has('mouse')
-  set mouse=a
-  if &term =~ 'xterm' || &term =~ 'screen'
-    set ttymouse=xterm2
-  endif
-endif
+"if v:version >= 702 && has('mouse')
+"  set mouse=a
+"  if &term =~ 'xterm' || &term =~ 'screen'
+"    set ttymouse=xterm2
+"  endif
+"endif
 
 " Switch on highlighting the last used search pattern.
 set hlsearch
