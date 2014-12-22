@@ -12,11 +12,13 @@ mod "module-data",
 # some/most of these if you want, but it's not recommended.
 
 mod "saz-dnsmasq", "1.1.0"
+mod "puppetlabs-java", "1.2.0"
 
 # Optional/custom modules
 mod "phathocker-profiles",
-  :git => "git://github.com/phathocker/puppet-profiles.git",
-  :ref =>"v0.1.0"
+  :git    => "git://github.com/phathocker/puppet-profiles.git",
+  :branch => 'master'
+  #:ref   =>"v0.1.0"
 
 # A module from the Puppet Forge
 # mod 'puppetlabs-stdlib'
