@@ -11,6 +11,7 @@ mod "module-data",
 # Core modules for a basic development environment. You can replace
 # some/most of these if you want, but it's not recommended.
 
+mod "eirc-single_user_rvm", "0.3.0"
 mod "saz-dnsmasq", "1.1.0"
 mod "puppetlabs-java", "1.2.0"
 
