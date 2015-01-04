@@ -56,3 +56,10 @@ alias scp="/usr/bin/scp ${SSH_ARGS}"
 alias llh="ls -lha"
 alias cdu='du -ms * | sort -n'
 alias pl='puppet-lint *'
+
+# Ruby
+function watch() {
+  bundle install
+  bundle update
+  bundle exec guard
+}
