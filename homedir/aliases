@@ -68,7 +68,7 @@ alias cdu='du -ms * | sort -n'
 alias pl='puppet-lint *'
 
 # Ruby
-function watch() {
+function gunit() {
   bundle install
   bundle update
   bundle exec guard
