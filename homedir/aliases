@@ -11,6 +11,7 @@ alias ps="sudo ps"
 alias yum="sudo yum"
 alias tail="sudo tail"
 alias netstat="sudo netstat -pantu"
+alias npmg="sudo -E npm install -g"
 
 # Bash
 alias sb="reload"
@@ -42,6 +43,13 @@ alias gshow='git remote show origin'
 alias gsl='git stash list'
 alias gt='git tree'
 alias gu='git up'
+function ua() {
+for dir in `ls`; do
+  cd $dir
+  gpull
+  cd ..
+done
+}
 
 # Locations
 alias dot='cd ~/.dotfiles/'
