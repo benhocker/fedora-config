@@ -44,10 +44,12 @@ alias gsl='git stash list'
 alias gt='git tree'
 alias gu='git up'
 function ua() {
-for dir in `ls`; do
-  cd $dir
-  gpull
-  cd ..
+for list in `ls`; do
+  if [ -d $list ]; then
+    cd $list
+    gpull
+    cd ..
+  fi
 done
 }
 
