@@ -6,6 +6,10 @@ if [ -f ~/.dotfiles/private/aliases ]; then
   source ~/.dotfiles/private/aliases
 fi
 
+if [ -f $HOME/.ssh/id_rsa ] || [ -f $HOME/.ssh/id_dsa ]; then
+  ssh-add
+fi
+
 # Auto-sudo
 alias ps="sudo ps"
 alias yum="sudo yum"
