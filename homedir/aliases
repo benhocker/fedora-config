@@ -8,7 +8,7 @@ fi
 export VAGRANT_DOTFILE_PATH=/tmp/
 export TMPDIR=/tmp/
 
-keychain --eval id_rsa id_dsa
+$(keychain --quiet --eval id_rsa id_dsa)
 
 # Auto-sudo
 alias ps="sudo ps"
