@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash --login
 
 # Load RVM, if you are using it
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 # Add rvm gems and nginx to the path

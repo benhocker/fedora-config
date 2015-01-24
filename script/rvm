@@ -3,3 +3,16 @@
 gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable
 
+reload
+
+rvm install ruby-1.8.7-head
+rvm install ruby-1.9.3-p551
+rvm install ruby-2.0.0-p598
+rvm install ruby-2.1.5
+rvm install ruby-2.2.0
+
+rvm use ruby-1.9.3-p551; rvm gemset create puppet
+rvm use ruby-2.0.0-p598; rvm gemset create puppet
+rvm use ruby-2.1.5; rvm gemset create puppet
+rvm use ruby-2.2.0; rvm gemset create puppet
+rvm use ruby-2.1.5@puppet --default
