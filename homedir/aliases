@@ -9,6 +9,7 @@ export VAGRANT_DOTFILE_PATH=/tmp/
 export TMPDIR=/tmp/
 
 eval `keychain --eval --agents ssh id_dsa`
+eval `dircolors ~/.dotfiles/submodules/dircolors-solarized/dircolors.ansi-dark`
 
 # Auto-sudo
 alias ps="sudo ps"

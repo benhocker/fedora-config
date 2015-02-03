@@ -99,13 +99,13 @@ function auto_update_repo() {
 
 function submodule_update() {
   cd submodules
-	git submodule update --init --recursive --remote
-	go_to_repo_root
+  git submodule update --init --recursive --remote
+  go_to_repo_root
 }
 
 function main() {
   go_to_repo_root
-	submodule_update
+  submodule_update
   auto_update_repo
 }
 

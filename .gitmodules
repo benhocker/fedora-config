@@ -7,3 +7,9 @@
 [submodule "submodules/bash_it"]
 	path = submodules/bash_it
 	url = https://github.com/revans/bash-it.git
+[submodule "dircolors-solarized"]
+	path = dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "submodules/dircolors-solarized"]
+	path = submodules/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
